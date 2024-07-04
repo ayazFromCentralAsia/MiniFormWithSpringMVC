@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Result</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style2.css}">
+</head>
+<body>
+<h1>Result</h1>
+<h1>User List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>City</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, stat : ${persons}">
+        <td th:text="${stat.count}">ID</td>
+        <td th:text="${user.name}">Name</td>
+        <td th:text="${user.age}">Age</td>
+        <td th:text="${user.email}">Email</td>
+        <td th:text="${user.city}">City</td>
+    </tr>
+    </tbody>
+</table>
+<h1>Delete User</h1>
+<form action="#" th:action="@{/userresult}" method="post">
+    <label for="id">ID for delete:</label>
+    <input type="number" id="id" name="id" min="1" required>
+    <br>
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>
